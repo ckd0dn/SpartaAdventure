@@ -44,6 +44,7 @@ public class PlayerCondition : MonoBehaviour
         hunger.Add(amount);
     }
 
+
     public void Die()
     {
         Debug.Log("аж╠щ");
