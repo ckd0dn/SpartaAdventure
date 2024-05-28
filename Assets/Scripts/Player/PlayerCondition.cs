@@ -11,11 +11,6 @@ public class PlayerCondition : MonoBehaviour
     Condition stamina { get { return uICondition.stamina; } }
 
     public float noHungerHealthDecay;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -48,5 +43,15 @@ public class PlayerCondition : MonoBehaviour
     public void Die()
     {
         Debug.Log("аж╠щ");
+    }
+
+    public bool UseStamina(float amount)
+    {
+        if (stamina.curValue - amount < 0f)
+        {
+            return false;
+        }
+        stamina.Subtract(amount);
+        return true;
     }
 }
