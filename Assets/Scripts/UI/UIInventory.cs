@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -26,6 +24,8 @@ public class UIInventory : MonoBehaviour
 
     ItemData selectedItem;
     int selectedItemIndex;
+
+    int curEquipIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -217,4 +217,37 @@ public class UIInventory : MonoBehaviour
 
         UpdateUI();
     }
+
+    public void OnEquipButton()
+    {
+        if (itemSlots[curEquipIndex].equipped)
+        {
+            UnEquip(curEquipIndex);
+        }
+
+        itemSlots[selectedItemIndex].equipped = true;
+        curEquipIndex = selectedItemIndex;
+        CharacterManager.Instance.Player.equipment.EquipNew(selectedItem);
+        UpdateUI();
+
+        SelectItem(selectedItemIndex);
+    }
+
+    void UnEquip(int index)
+    {
+        itemSlots[selectedItemIndex].equipped = false;
+        CharacterManager.Instance.Player.equipment.UnEquip();
+        UpdateUI();
+
+        if(selectedItemIndex == index)
+        {
+            SelectItem(selectedItemIndex);
+        }
+    }
+
+    public void UnEquipButton()
+    {
+        UnEquip(selectedItemIndex);
+    }
+
 }
