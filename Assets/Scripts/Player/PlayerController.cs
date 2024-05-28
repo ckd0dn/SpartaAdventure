@@ -25,10 +25,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Animator animator;
 
+    private Camera mainCamera;
+    private bool isThirdPersonView = false;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        mainCamera = Camera.main;
     }
 
 
@@ -140,5 +143,27 @@ public class PlayerController : MonoBehaviour
         bool toggle = Cursor.lockState == CursorLockMode.Locked;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
+    }
+
+    public void OnSwitchToThirdPerson(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            
+            if (!isThirdPersonView)
+            {
+                // 카메라를 3인칭으로 위치변경
+                mainCamera.transform.position = CharacterManager.Instance.Player.thirdPersonPosition.position;
+                mainCamera.transform.rotation = CharacterManager.Instance.Player.thirdPersonPosition.rotation;
+                isThirdPersonView = true;
+            }
+            else
+            {
+                mainCamera.transform.position = cameraContainer.position;
+                mainCamera.transform.rotation = cameraContainer.rotation;
+                isThirdPersonView = false;
+            }
+        }
+
     }
 }

@@ -19,6 +19,7 @@ public class EquipTool : Equip
     private void Start()
     {
         animator = GetComponent<Animator>();
+
         camera = Camera.main;
     }
 
@@ -46,8 +47,11 @@ public class EquipTool : Equip
         Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
+        Debug.DrawRay(ray.origin, ray.direction * attackDistance, Color.red, 2.0f);
+
         if (Physics.Raycast(ray, out hit, attackDistance))
         {
+
             if (doesGatherResources && hit.collider.TryGetComponent(out Resource resource))
             {
                 resource.Gather(hit.point, hit.normal);

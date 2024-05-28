@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public Action addItem;
 
     public Transform dropPosition;
+    public Transform thirdPersonPosition;
 
     private void Awake()
     {

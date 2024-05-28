@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemToGive: {fileID: 11400000, guid: ce9ec79928820d345bb0525a5e1bad6c, type: 2}
   quantityPerHit: 1
-  capacy: 5
+  capacy: 10
 --- !u!65 &137604834
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2364,6 +2364,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9176030899248954868, guid: 12279f4d36b30ac47bc926c325266198, type: 3}
   m_PrefabInstance: {fileID: 927736175}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &928130066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928130067}
+  m_Layer: 6
+  m_Name: ThirdPersonPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928130067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928130066}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.3, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2046981913}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,7 +2480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5403,6 +5434,7 @@ Transform:
   m_Children:
   - {fileID: 963194228}
   - {fileID: 1529043357}
+  - {fileID: 928130067}
   m_Father: {fileID: 7211495564807759301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2116575216
@@ -8288,6 +8320,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b2dd1f22-a145-4287-9a57-9bca30bd80ec
     m_ActionName: Player/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8025328424381562755}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSwitchToThirdPerson
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b27eb1eb-16a9-479a-b297-a327c4bbd88f
+    m_ActionName: Player/ThirdPersonView[/Keyboard/v]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -8332,6 +8380,7 @@ MonoBehaviour:
   equipment: {fileID: 0}
   itemData: {fileID: 0}
   dropPosition: {fileID: 793983951}
+  thirdPersonPosition: {fileID: 928130067}
 --- !u!95 &8025328424381562757
 Animator:
   serializedVersion: 5

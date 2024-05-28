@@ -48,11 +48,6 @@ public class UIInventory : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     void ClearSelectedItemWindow()
     {
         selectedItemName.text = string.Empty;
@@ -86,7 +81,7 @@ public class UIInventory : MonoBehaviour
             if(slot != null)
             {
                 slot.quantity++;
-
+                UpdateUI();
                 CharacterManager.Instance.Player.itemData = null;
                 return;
             }
