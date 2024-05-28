@@ -27,6 +27,12 @@ public class PlayerController : MonoBehaviour
 
     private Camera mainCamera;
     private bool isThirdPersonView = false;
+
+    [Header("Climb")]
+    public float climbSpeed;
+    public LayerMask wallLayer;
+    private bool isWallClimbing;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -45,7 +51,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
+        if (isWallClimbing)
+        {
+            WallClimb();
+        }
+        else
+        {
+            Move();
+        }
+        
     }
 
     private void LateUpdate()
@@ -165,5 +179,38 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // 충돌한 오브젝트가 벽 레이어에 속하는지 확인합니다.
+        if (((1 << collision.gameObject.layer) & wallLayer) != 0)
+        {
+            StartWallClimb();
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (((1 << collision.gameObject.layer) & wallLayer) != 0)
+        {
+            StopWallClimb();
+        }
+    }
+
+    private void WallClimb()
+    {
+        Vector3 climbDirection = transform.up * curMoveInput.y + transform.right * curMoveInput.x;
+        rb.velocity = climbDirection * climbSpeed;
+    }
+
+    private void StopWallClimb()
+    {
+        isWallClimbing = false;
+    }
+
+    private void StartWallClimb()
+    {
+        isWallClimbing = true;
     }
 }
