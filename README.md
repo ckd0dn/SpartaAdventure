@@ -10,3 +10,5 @@ Tab : 인벤토리
 E : 상호작용  
 V : 3인칭 시점변경  
 마우스 왼쪽 클릭: 공격, 나무 캐기
+
+![image](https://github.com/ckd0dn/SpartaAdventure/assets/74403510/e801150f-8924-48bd-91f9-34a313d722e9)
