@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24f8a5f868569f348a3248f11be03791, type: 3}
-  m_Name: Item_Wood
+  m_Name: Item_Soda
   m_EditorClassIdentifier: 
-  displayName: "\uB098\uBB34"
-  description: "\uADF8\uB0E5 \uB098\uBB34\uC785\uB2C8\uB2E4."
-  type: 0
-  icon: {fileID: 21300000, guid: a5612e17f7779374da8564e7a11d823c, type: 3}
-  dropPrefab: {fileID: 1346674806902826360, guid: 42f676bc927bcd84bae34dbef241611a, type: 3}
+  displayName: "\uC18C\uB2E4"
+  description: "\uB9C8\uC2DC\uBA74 \uC77C\uC815\uC2DC\uAC04 \uC2A4\uD53C\uB4DC\uAC00
+    \uBE68\uB77C\uC9C0\uB294 \uC18C\uB2E4\uC785\uB2C8\uB2E4."
+  type: 1
+  icon: {fileID: 21300000, guid: d685aba35c22f674a867746d1c23121b, type: 3}
+  dropPrefab: {fileID: 759711420496793406, guid: add73d4e3a0e24e48838dcb5ca6a1a93, type: 3}
   canStack: 1
   maxStackAmount: 10
-  consumables: []
+  consumables:
+  - type: 2
+    value: 30
   equipPrefab: {fileID: 0}

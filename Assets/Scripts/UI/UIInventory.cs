@@ -186,6 +186,9 @@ public class UIInventory : MonoBehaviour
                     case ConsumableType.Hunger:
                         playerCondition.Eat(selectedItem.consumables[i].value);
                         break;
+                    case ConsumableType.Speed:
+                        playerCondition.ChangeSpeed(selectedItem.consumables[i].value);
+                        break;
                 }
             }
         }
